@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BirdID — Bird identification by photo</title>
-  <meta name="description" content="BirdID identifies birds from a photo using region-specific AI models, with seasonal plumage awareness and bird songs." />
+  <title>BirdID — Bird identification by photo and sound</title>
+  <meta name="description" content="BirdID identifies birds from a photo or their song using region-specific AI models, with seasonal plumage awareness and image + audio fusion." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -15,29 +15,63 @@
 
   <div class="hero">
     <span class="emoji">🐦</span>
-    <h1>Identify birds from a photo</h1>
-    <p>BirdID recognizes birds using region-specific AI models that account for the season and the bird's plumage — and lets you hear its song.</p>
+    <h1>Identify birds by photo and sound</h1>
+    <p>BirdID recognizes birds using region-specific AI models that account for the season and the bird's plumage — from a photo, its song, or both combined.</p>
   </div>
 
   <main class="wrap">
     <section>
-      <p class="lead">Point your camera at a bird, or pick a photo from your gallery. BirdID returns the most likely species with a confidence score, a link to Wikipedia, and a recording of its call.</p>
+      <p class="lead">Point your camera at a bird or record its call — or do both, and BirdID combines the visual and acoustic evidence. You get the most likely species with a confidence score, its taxonomy, a link to Wikipedia, and a reference recording of its call.</p>
     </section>
 
     <section>
       <h2>Features</h2>
       <ul class="features">
         <li><strong>Photo identification</strong>Get the most likely species from one or several photos of the same bird.</li>
-        <li><strong>Region-aware models</strong>Dedicated AI models per biome across North America and Europe, with more regions on the way.</li>
+        <li><strong>Sound identification</strong>Record a bird's song or call and identify it by ear — available for a growing set of biomes.</li>
+        <li><strong>Photo + sound fusion</strong>Capture both a photo and the call of the same bird and BirdID combines both models for a more confident result.</li>
+        <li><strong>Region-aware models</strong>Dedicated AI models per biome across North America, Europe, East Asia, Oceania, Africa and Central America.</li>
         <li><strong>Seasonal plumage</strong>The model considers the month, so breeding and non-breeding plumages are handled.</li>
-        <li><strong>Bird songs</strong>Listen to a recording of the species, streamed from Xeno-canto with full attribution.</li>
-        <li><strong>Private by design</strong>Your identification history stays on your device. Photos are processed only to identify the bird and are not stored on our servers.</li>
+        <li><strong>Taxonomy &amp; songs</strong>See each species' order, family and genus, and listen to a reference recording streamed from Xeno-canto with full attribution.</li>
+        <li><strong>Private by design</strong>Your identification history stays on your device. Photos and audio are processed only to identify the bird and are not stored on our servers.</li>
       </ul>
     </section>
 
     <section>
       <h2>Coverage</h2>
-      <p>BirdID currently covers North America and Europe by biome (eastern forests, deserts, boreal, Mediterranean, Atlantic and more). Additional regions are being added over time.</p>
+      <p>BirdID covers 18 biomes across six regions for photo identification. Sound identification is available for 7 of them and expanding. Each biome has its own dedicated AI model.</p>
+      <div class="table-wrap">
+        <table class="biomes">
+          <thead>
+            <tr><th>Biome</th><th class="center">Photo</th><th class="center">Sound</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="region" colspan="3">North America</td></tr>
+            <tr><td>Eastern Temperate Forest</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Boreal Forest</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Great Plains</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Desert Southwest</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Pacific Northwest</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>California Chaparral</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Arctic Tundra</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td class="region" colspan="3">Europe</td></tr>
+            <tr><td>Scandinavian Boreal</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Atlantic Temperate</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Central European</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Mediterranean</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Eastern Steppe</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td class="region" colspan="3">East Asia &amp; Oceania</td></tr>
+            <tr><td>Japan &amp; Ryukyu</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Eastern Australia</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Tropical North Australia</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>New Zealand</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td class="region" colspan="3">Africa &amp; Central America</td></tr>
+            <tr><td>South Africa</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Costa Rica</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="meta">More regions and sound models are added over time.</p>
     </section>
 
     <section>

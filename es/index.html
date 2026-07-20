@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BirdID — Identificación de aves por foto</title>
-  <meta name="description" content="BirdID identifica aves a partir de una foto usando modelos de IA por región, con plumaje estacional y cantos." />
+  <title>BirdID — Identificación de aves por foto y sonido</title>
+  <meta name="description" content="BirdID identifica aves a partir de una foto o su canto usando modelos de IA por región, con plumaje estacional y fusión de imagen + audio." />
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
@@ -15,29 +15,63 @@
 
   <div class="hero">
     <span class="emoji">🐦</span>
-    <h1>Identificá aves desde una foto</h1>
-    <p>BirdID reconoce aves con modelos de IA específicos por región que tienen en cuenta la época del año y el plumaje — y te deja escuchar su canto.</p>
+    <h1>Identificá aves por foto y sonido</h1>
+    <p>BirdID reconoce aves con modelos de IA específicos por región que tienen en cuenta la época del año y el plumaje — desde una foto, su canto, o ambos combinados.</p>
   </div>
 
   <main class="wrap">
     <section>
-      <p class="lead">Apuntá la cámara a un ave, o elegí una foto de la galería. BirdID te devuelve la especie más probable con su nivel de confianza, un enlace a Wikipedia y una grabación de su canto.</p>
+      <p class="lead">Apuntá la cámara a un ave o grabá su canto — o hacé las dos cosas, y BirdID combina la evidencia visual y acústica. Obtenés la especie más probable con su nivel de confianza, su taxonomía, un enlace a Wikipedia y una grabación de referencia de su canto.</p>
     </section>
 
     <section>
       <h2>Funciones</h2>
       <ul class="features">
         <li><strong>Identificación por foto</strong>Obtené la especie más probable a partir de una o varias fotos de la misma ave.</li>
-        <li><strong>Modelos por región</strong>Modelos de IA dedicados por bioma en Norteamérica y Europa, con más regiones en camino.</li>
+        <li><strong>Identificación por sonido</strong>Grabá el canto o llamado de un ave e identificala de oído — disponible para un conjunto creciente de biomas.</li>
+        <li><strong>Fusión foto + sonido</strong>Capturá una foto y el canto de la misma ave y BirdID combina ambos modelos para un resultado más confiable.</li>
+        <li><strong>Modelos por región</strong>Modelos de IA dedicados por bioma en Norteamérica, Europa, Asia Oriental, Oceanía, África y Centroamérica.</li>
         <li><strong>Plumaje estacional</strong>El modelo considera el mes, así que maneja plumajes reproductivos y no reproductivos.</li>
-        <li><strong>Cantos de aves</strong>Escuchá una grabación de la especie, reproducida desde Xeno-canto con la atribución correspondiente.</li>
-        <li><strong>Privacidad por diseño</strong>Tu historial de identificaciones queda en tu dispositivo. Las fotos se procesan solo para identificar el ave y no se guardan en nuestros servidores.</li>
+        <li><strong>Taxonomía y cantos</strong>Consultá el orden, la familia y el género de cada especie, y escuchá una grabación de referencia reproducida desde Xeno-canto con la atribución correspondiente.</li>
+        <li><strong>Privacidad por diseño</strong>Tu historial de identificaciones queda en tu dispositivo. Las fotos y el audio se procesan solo para identificar el ave y no se guardan en nuestros servidores.</li>
       </ul>
     </section>
 
     <section>
       <h2>Cobertura</h2>
-      <p>BirdID cubre actualmente Norteamérica y Europa por bioma (bosques del este, desiertos, boreal, mediterráneo, atlántico y más). Se van agregando nuevas regiones con el tiempo.</p>
+      <p>BirdID cubre 18 biomas en seis regiones para identificación por foto. La identificación por sonido está disponible en 7 de ellos y sigue creciendo. Cada bioma tiene su propio modelo de IA dedicado.</p>
+      <div class="table-wrap">
+        <table class="biomes">
+          <thead>
+            <tr><th>Bioma</th><th class="center">Foto</th><th class="center">Sonido</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="region" colspan="3">Norteamérica</td></tr>
+            <tr><td>Bosque Templado del Este</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Bosque Boreal</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Grandes Llanuras</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Desierto del Suroeste</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Bosque del Pacífico</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Chaparral de California</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Tundra Ártica</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td class="region" colspan="3">Europa</td></tr>
+            <tr><td>Boreal Escandinavo</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Atlántico Templado</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Centroeuropeo</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Mediterráneo</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Estepa del Este</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td class="region" colspan="3">Asia Oriental y Oceanía</td></tr>
+            <tr><td>Japón y Ryukyu</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Este de Australia</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Norte Tropical de Australia</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td>Nueva Zelanda</td><td class="center yes">✓</td><td class="center no">—</td></tr>
+            <tr><td class="region" colspan="3">África y Centroamérica</td></tr>
+            <tr><td>Sudáfrica</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+            <tr><td>Costa Rica</td><td class="center yes">✓</td><td class="center yes">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="meta">Se agregan nuevas regiones y modelos de sonido con el tiempo.</p>
     </section>
 
     <section>

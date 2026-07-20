@@ -118,3 +118,34 @@ h3 { font-size: 1.1rem; margin: 22px 0 8px; }
 
 ul.tight li { margin-bottom: 6px; }
 code { background: var(--bg-soft); padding: 1px 6px; border-radius: 4px; }
+
+/* Biomes coverage table */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+.biomes {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 420px;
+}
+.biomes th, .biomes td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.biomes thead th {
+  background: var(--bg-soft);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.biomes td.center, .biomes th.center { text-align: center; }
+.biomes tbody tr:hover { background: var(--bg-soft); }
+.biomes .region {
+  background: var(--bg-soft);
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.yes { color: var(--teal-dark); font-weight: 700; }
+.no  { color: var(--border); }
