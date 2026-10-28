@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <title>BirdID — Technical Demo</title>
+  <meta name="description" content="Technical demonstration of BirdID: an Android app for bird identification by photo and sound, with a FastAPI/AWS backend and region-specific AI models. Portfolio case study." />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .demo-badge {
+      display: inline-block; background: rgba(255,255,255,0.18); color: #fff;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 999px; margin-bottom: 14px;
+    }
+    .apk-btn {
+      font-size: 1.05rem; padding: 14px 28px; border-radius: 28px;
+    }
+    .apk-btn[aria-disabled="true"] {
+      background: var(--border); color: var(--muted); pointer-events: none;
+    }
+    .meta-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.93rem; }
+    .meta-table th, .meta-table td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .meta-table th { width: 42%; color: var(--muted); font-weight: 600; white-space: nowrap; }
+    .checksum { word-break: break-all; font-size: 0.82rem; }
+    .arch-flow { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; font-size: 0.95rem; line-height: 1.9; }
+    ol.steps { padding-left: 1.2rem; }
+    ol.steps li { margin-bottom: 8px; }
+    .notice { font-size: 0.88rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <span class="brand"><span class="logo">🐦</span> BirdID</span>
+    <span class="meta">Technical demo</span>
+  </header>
+
+  <div class="hero">
+    <span class="demo-badge">Independent technical demonstration</span>
+    <span class="emoji">🐦</span>
+    <h1>BirdID</h1>
+    <p>Android bird identification by photo and sound — region-specific AI models, image+audio fusion, and a FastAPI/AWS backend.</p>
+    <p style="margin-top:22px;">
+      <a class="btn apk-btn" href="birdid-v1.9-huawei.apk" download="birdid-v1.9-huawei.apk">
+        Download Android APK (v1.9, 9.1 MB)
+      </a>
+    </p>
+    <p class="notice" style="color:#fff; opacity:0.9;">Android 6.0+ required. Internet connection required for identification.</p>
+  </div>
+
+  <main class="wrap">
+    <section>
+      <p class="lead">This page demonstrates a real, functioning Android application as a portfolio case study. It is not affiliated with or endorsed by any freelance platform, and does not facilitate contact or business outside of it.</p>
+    </section>
+
+    <section>
+      <h2>What this demonstrates</h2>
+      <ul class="features">
+        <li><strong>Computer vision / image classification</strong>Region-specific AI models (18 biomes) identify bird species from one or more photos, with seasonal-plumage awareness.</li>
+        <li><strong>Audio classification &amp; signal processing</strong>Identifies birds from a recorded song or call using dedicated per-region audio models (7 biomes).</li>
+        <li><strong>Multimodal fusion</strong>Combines photo and audio predictions of the same bird into a single, more confident result.</li>
+        <li><strong>REST API &amp; AWS backend</strong>FastAPI backend on AWS EC2, served over HTTPS (nginx + Let's Encrypt), with models hosted on S3.</li>
+        <li><strong>Native in-app billing</strong>Huawei In-App Purchases (HMS IAP) integration for auto-renewable subscriptions, with server-side receipt verification against Huawei's API.</li>
+        <li><strong>Native Android development beyond standard plugins</strong>A custom Java plugin provides geolocation via the Android framework's LocationManager, for devices without Google Play Services.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Screenshots</h2>
+      <p class="notice">A screenshot gallery for this build is pending and will be added here. In the meantime, the APK below can be installed directly to see the application running.</p>
+    </section>
+
+    <section>
+      <h2>How to test</h2>
+      <ol class="steps">
+        <li>Download the Android APK using the button above.</li>
+        <li>Open the downloaded file on your Android device (via your browser's downloads or a file manager).</li>
+        <li>Android will ask for permission to install from this source — this is standard for any APK installed outside an app store. Allow it for this install only if you choose to proceed.</li>
+        <li>Launch BirdID and create a free account (email address + a confirmation code sent by email — no payment required).</li>
+        <li>Try the suggested demonstration below.</li>
+      </ol>
+      <p class="notice">Minimum Android version: 6.0 (API 23). An internet connection is required — identification requests are processed by the backend API, not on the device. Camera and microphone access are requested only when you use those features.</p>
+    </section>
+
+    <section>
+      <h2>Suggested demonstration</h2>
+      <div class="card">
+        <p>Take or choose a photo of a bird, submit it for identification, and review the predicted species, confidence score, and taxonomy (order, family, genus). Then record the bird's call (or play a recording near the microphone) and submit it as well — the app fuses both into one result and shows a reference recording of the species' real call.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical architecture</h2>
+      <div class="arch-flow">
+        Android app (Capacitor + Ionic + React; native Java plugins for Huawei IAP and GMS-free geolocation)<br>
+        → HTTPS REST API (FastAPI)<br>
+        → AWS EC2 (Docker container, nginx reverse proxy, Let's Encrypt TLS)<br>
+        → ONNX Runtime inference — 18 region-specific image models + 7 audio models (hosted on S3)<br>
+        → SQLite (accounts, quota, subscriptions) + AWS SES (email verification codes)<br>
+        → Huawei IAP server-side receipt verification (subscriptions)
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical notes</h2>
+      <table class="meta-table">
+        <tr><th>Package</th><td><code>io.birdid.app</code></td></tr>
+        <tr><th>Version</th><td>1.9 (version code 10)</td></tr>
+        <tr><th>Build distributed here</th><td>Huawei (HMS) flavor — does not require Google Play Services</td></tr>
+        <tr><th>Minimum Android version</th><td>6.0 (API 23)</td></tr>
+        <tr><th>Target SDK</th><td>Android 16 (API 36)</td></tr>
+        <tr><th>Internet requirement</th><td>Required for all identification requests (backend inference)</td></tr>
+        <tr><th>Additional hardware</th><td>None required; camera and microphone used when those features are invoked</td></tr>
+        <tr><th>Permissions</th><td>Internet, Camera, Location (coarse/fine, for automatic region selection), Microphone, In-app billing</td></tr>
+        <tr><th>APK file size</th><td>9,524,161 bytes (9.08 MB)</td></tr>
+        <tr><th>APK SHA-256</th><td class="checksum">4fe509728340760b3675d020ccb2384ddd14e9b08256eb94e51a4c84cf570b85</td></tr>
+        <tr><th>Demonstration limitations</th><td>Free-tier identification quota applies, same as the published app. This build uses Huawei In-App Purchases; its subscription flow cannot be completed without a Huawei ID, so it is shown for code-review purposes rather than as a testable purchase.</td></tr>
+      </table>
+      <p class="notice">This APK is the original signed release artifact submitted to Huawei AppGallery — unmodified and unresigned. It connects to the same live backend as the published app, so results reflect real, current model performance.</p>
+    </section>
+
+    <section>
+      <p class="notice">Provided for technical evaluation only. This is an independent demonstration, not affiliated with or certified by any third-party platform.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a href="../privacy.html">Privacy Policy</a> ·
+      <a href="../terms.html">Terms of Use</a>
+    </div>
+    <p class="meta">© 2026 BirdID.</p>
+  </footer>
+</body>
+</html>
